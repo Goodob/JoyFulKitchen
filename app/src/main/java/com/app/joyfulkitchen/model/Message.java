@@ -1,12 +1,14 @@
 package com.app.joyfulkitchen.model;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Administrator on 2017/4/5.
  */
 public class Message {
     private int id;
 
-    private String img;
+    private Bitmap img;
 
     private String menuName;
     public int getId() {
@@ -17,11 +19,11 @@ public class Message {
         this.id = id;
     }
 
-    public String getImg() {
+    public Bitmap getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(Bitmap img) {
         this.img = img;
     }
 

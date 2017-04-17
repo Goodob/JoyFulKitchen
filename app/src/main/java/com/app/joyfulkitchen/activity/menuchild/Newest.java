@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -31,6 +31,7 @@ public class Newest extends Activity{
     private BaseAdapter adapter;
     private String menuName; /*搜索食物名*/
     private List<Message> menuList = new ArrayList<Message>();
+   /* private Bitmap menuForImage;*/
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class Newest extends Activity{
 
             @Override
             public Object getItem(int position) {
-                return null;
+                return menuList.get(position);
             }
 
             @Override
@@ -67,14 +68,20 @@ public class Newest extends Activity{
                     view = convertView;
                 }
                Message m = menuList.get(position);
-                RelativeLayout r = (RelativeLayout) view.findViewById(R.id.list_ra);
+             /*   RelativeLayout r = (RelativeLayout) view.findViewById(R.id.list_ra);*/
                /* Resources resources = getApplicationContext().getResources();
                 Drawable btnDrawable = resources.getDrawable(R.mipmap.aa);
 
                 r.setBackgroundDrawable(btnDrawable);*/
+
+
                 /*设置listview菜名*/
-               TextView t = (TextView) view.findViewById(R.id.list_i_txt);
+                TextView t = (TextView) view.findViewById(R.id.list_i_txt);
                 t.setText(m.getMenuName());
+                 /*设置listview菜主题图片*/
+                ImageView mImage = (ImageView) view.findViewById(R.id.menuIamge);
+                mImage.setImageBitmap(m.getImg());
+
 
                 return view;
             }

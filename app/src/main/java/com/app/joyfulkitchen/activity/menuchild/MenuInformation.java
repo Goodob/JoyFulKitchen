@@ -33,7 +33,7 @@ public class MenuInformation extends FragmentActivity {
         setContentView(R.layout.menu_infomation);
 
         getinitView();
-        for (int i = 0; i <5; i++) {
+      /*  for (int i = 0; i <5; i++) {
             Message m = new Message();
             m.setMenuName("沙拉");
             m.setImg("R.mipmap.aa");
@@ -41,7 +41,7 @@ public class MenuInformation extends FragmentActivity {
             messageList1.add(m);//上周
             //定义一个界面与数据的混合体,一个item代表一行记录
 
-        }
+        }*/
 
         /*设置适配器*/
         info_list.setAdapter(new BaseAdapter() {

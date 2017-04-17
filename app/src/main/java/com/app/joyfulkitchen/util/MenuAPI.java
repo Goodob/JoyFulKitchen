@@ -1,5 +1,7 @@
 package com.app.joyfulkitchen.util;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -46,7 +48,7 @@ public class MenuAPI {
     }
 
     //2.分类标签列表
-    public static String getRequest2(int parentid){
+    public static String getRequest2(){
         String rs =null;
         String url ="http://apis.juhe.cn/cook/category";//请求接口地址
         Map params = new HashMap();//请求参数
@@ -63,7 +65,22 @@ public class MenuAPI {
         return rs;
     }
 
+    //4.按菜谱ID查看详细
+    public static void getRequest4(int parentId){
+        String result =null;
+        String url ="http://apis.juhe.cn/cook/queryid";//请求接口地址
+        Map params = new HashMap();//请求参数
+        params.put("id",parentId);//菜谱的ID
+        params.put("key",APPKEY);//应用APPKEY(应用详细页查询)
+        params.put("dtype","");//返回数据的格式,xml或json，默认json
 
+        try {
+            result =nem(url, params, "GET");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      *
